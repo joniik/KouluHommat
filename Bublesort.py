@@ -1,10 +1,13 @@
 import random
 
+#Seedin rändömisointi
 random.seed(random.randint(0, 999999999))
 
+#Luo annetunarvon pituisen listan
 def Luolista(n):
     return list(range(1, n + 1))
 
+#Sekoittaa listan
 def sekoitalista(L):
     Sekoitettulista = L.copy()
     for i in range(len(Sekoitettulista)):
@@ -12,16 +15,19 @@ def sekoitalista(L):
         Sekoitettulista[i], Sekoitettulista[indeksi] = Sekoitettulista[indeksi], Sekoitettulista[i]
     return Sekoitettulista
 
+#Returnaa valmiin listan
 def sortattu(L, kerrat):
     print(L)
     kerrat += 1
     return all(L[i] <= L[i + 1] for i in range(len(L) - 1)), kerrat
 
+#Sorttaa listan Bubble sortilla
 def Bubblesort(L, kerrat):
     n = len(L)
     while not sortattu(L, kerrat)[0]:
         laskuri = 0
         while laskuri < n - 1:
+            #Jos Indeksi on suurempi kuin seuraava
             if L[laskuri] > L[laskuri + 1]:
                 L[laskuri], L[laskuri + 1] = L[laskuri + 1], L[laskuri]
             laskuri += 1
